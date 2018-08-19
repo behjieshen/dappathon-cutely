@@ -1,0 +1,116 @@
+doctype html
+head
+
+  include ./reusables.jade
+  script(type="text/javascript").
+    $(document).ready(function() {
+      $('.close-button').click(function() {
+        $('.content-background').css('display', 'none');
+      })
+      
+      $('#lilly').click(function(event) {
+        $('#lilly-content').css('display', 'block');
+      })
+      
+      $('#rachel').click(function(event) {
+        $('#rachel-content').css('display', 'block');
+      })
+      
+      $('#ailing').click(function(event) {
+        $('#ailing-content').css('display', 'block');
+      })
+      
+      $('#josephine').click(function(event) {
+        $('#josephine-content').css('display', 'block');
+      })
+      
+      $('.like-button').click(function() {
+        var imageUrl = $(this).siblings('img').attr('src');
+        console.log(imageUrl);
+        $('.input-hidden').val(imageUrl);
+        $('.goToMatching').submit();
+      })
+    })
+    
+
+
+body(style="background: white; width: 90%;")
+  main
+    form.goToMatching(method="post" action="/matched")
+      input.input-hidden(type="text" name="matchedImage")
+      
+    .list
+      .user#lilly
+        img(src="/images/1.jpg")
+        h6 Lilly Singh, 30
+      .user#josephine
+        img(src="/images/2.jpg")
+        h6 Josephine Woods, 22
+    .list
+      .user#rachel
+        img(src="/images/3.jpg")
+        h6 Rachel Gray, 21
+      .user#ailing
+        img(src="/images/4.jpg")
+        h6 Ai Ling Lim, 28
+    .content-background#lilly-content
+      .content
+        i.fas.fa-times.close-button
+        img(src="/images/1.jpg")
+        h6.title Lilly Singh, 30
+        h6.job Youtuber
+        p I love ice cream and maybe you! Hit me up if you want to do anything fun!
+        .interests
+          span Hiking
+          span Dogs 
+          span Poems
+        hr
+        span.like-button Let's Match
+    .content-background#josephine-content
+      .content
+        i.fas.fa-times.close-button
+        img(src="/images/2.jpg")
+        h6.title Josephine, 22
+        h6.job Model
+        p For me, its plain simple. It's just anything will do.
+        .interests
+          span Eat
+          span Drink
+          span Travel
+        hr
+        span.like-button Let's Match
+    .content-background#rachel-content
+      .content
+        i.fas.fa-times.close-button
+        img(src="/images/3.jpg")
+        h6.title Rachel Gray, 21
+        h6.job Author
+        p I am happy and I am so ready to date! Hope you are too!
+        .interests
+          span Read Books
+          span Painting
+          span Shopping
+        hr
+        span.like-button Let's Match
+    .content-background#ailing-content
+      .content
+        i.fas.fa-times.close-button
+        img(src="/images/4.jpg")
+        h6.title Ai Ling Lim, 28
+        h6.job Actress
+        p I love anything fun like you, so please don't be boring.
+        .interests
+          span Food
+          span Music
+          span Sports
+        hr
+        span.like-button Let's Match
+    .nav-bottom
+      li 
+        i.fas.fa-user
+      li 
+        i.fas.fa-home.active
+      li 
+        i.fas.fa-comments
+    
+  

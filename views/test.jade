@@ -1,0 +1,50 @@
+doctype html
+head
+  meta(charset="utf-8")
+  title Hello
+  style. 
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+  script(src='/scripts/kairos.js')
+  script(type="text/javascript").
+    $(document).ready(function() {
+      var faceUrl = $('.face').text();
+      var uploaded = $('.uploaded').text();
+  
+      var kairos = new Kairos("accd5bf0", "8ee15353f92e978cb9fd954c7bcef3f6");
+  
+      function myDetectCallback(response) {
+        alert(response.responseText);
+        
+        function callback(response)
+        {
+           alert(response.responseText);
+        }
+
+        // (2) prepare your parameters  
+        var image       = uploaded;
+        var subject_id  = 'personal';
+        var gallery_name  = 'me';
+
+        // (3) pass your params and callback to the function
+        kairos.verify(image, gallery_name, subject_id, callback);
+      }
+  
+      // (2) prepare your parameters  
+      var image       = faceUrl;
+      var subject_id  = 'personal';
+      var gallery_name  = 'me';
+  
+      // (3) pass your params and callback to the function
+      kairos.enroll(image, gallery_name, subject_id, myDetectCallback);
+    })
+    
+body
+  img(src="#{face}")
+  h3.face #{face}
+  br
+  img(src="#{uploaded}")
+  h3.uploaded #{uploaded}

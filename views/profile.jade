@@ -1,0 +1,30 @@
+doctype html
+head
+  include ./reusables.jade
+  script(type="text/javascript").
+    $(document).ready(function() {
+      
+      $('.signup-input-image').change(function() {
+        $('.signup-display-image').attr('src', window.URL.createObjectURL(this.files[0]));
+        $('.signup-face-prompt').css('display', 'none');
+        $('.signup-button').css('display', 'inline-block');
+      })
+      
+      $('.signup-face-prompt').click(function(e) {
+        e.preventDefault();
+        $('.signup-input-image').click();
+      })
+
+    })
+
+body
+  main
+    h2.signup-title Upload Profile Image
+    img.signup-display-image(src="")
+    form.signup-face-form(action="/upload-photo" method="post" enctype="multipart/form-data")
+      input.signup-input-image(type="file" accept="image/*;capture=camera" name="signup-face-image")
+      input.face-image(type="text" name="faceImage" value="#{face}") 
+      br
+      button.signup-face-prompt Click to take a photo
+      button.signup-button(type="submit") Upload Photo
+    

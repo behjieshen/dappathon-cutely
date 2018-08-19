@@ -1,0 +1,63 @@
+doctype html
+head
+
+  include ./reusables.jade
+  script(type="text/javascript").
+    $(document).ready(function() {
+      var faceUrl = $('.face').text();
+      var uploaded = $('.uploaded').text();
+    
+      var kairos = new Kairos("accd5bf0", "8ee15353f92e978cb9fd954c7bcef3f6");
+    
+      function myDetectCallback(response) {
+        function callback(response)
+        {
+           $('.spinner, .spinner-title').css('display', 'none');
+           var confidence = JSON.parse(response.responseText).images[0].transaction.confidence;
+    
+           if(confidence > 0.65) {
+             $('.spinner-message-success').css('display', 'block');
+             $('.spinning-image').css('display', 'block');
+             $('.spinner-success-button').css('display', 'inline');
+           } else {
+             $('.spinner-message-error').css('display', 'block');
+             $('.spinning-image').css('display', 'block');
+             $('.spinner-fail-button').css('display', 'inline');
+           }
+           
+        }
+    
+        // (2) prepare your parameters  
+        var image       = uploaded;
+        var subject_id  = 'personal';
+        var gallery_name  = 'me';
+    
+        // (3) pass your params and callback to the function
+        kairos.verify(image, gallery_name, subject_id, callback);
+      }
+    
+      // (2) prepare your parameters  
+      var image       = faceUrl;
+      var subject_id  = 'personal';
+      var gallery_name  = 'me';
+    
+      // (3) pass your params and callback to the function
+      kairos.enroll(image, gallery_name, subject_id, myDetectCallback);
+    })
+
+body(style="background: white;")
+  main
+    i.fas.fa-circle-notch.fa-spin.spinner
+    h6.spinner-title Checking if your faces match
+    h2.spinner-message.spinner-message-error Oops! Please upload a better profile image!
+    h2.spinner-message.spinner-message-success Awesome! U got a new profile picture now!
+    h2.face #{face}
+    h2.uploaded #{profile}
+    img.spinning-image(src="#{profile}")
+    form(method="post" action="/list")
+      input.input-hidden(type="text" name="face" value="#{face}")
+      input.input-hidden(type="text" name="profile" value="#{profile}")
+      button.spinner-button.spinner-success-button(formaction="/user-list") I want to start swiping!
+    a.spinner-button.spinner-fail-button(href="#") Go Back to Upload 
+
+  

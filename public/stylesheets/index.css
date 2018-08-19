@@ -1,0 +1,253 @@
+body {
+  background: linear-gradient(#b24592, #f15f79);
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.signup-title {
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+.signup-button,
+.signup-face-prompt {
+  border: none;
+  background: white;
+  padding: 10px 26px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: 'Montserrat';
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.signup-button {
+  display: none;
+}
+
+.signup-display-image {
+  width: 100%;
+  max-width: 200px;
+}
+
+.signup-input-image {
+  display: none;
+}
+
+.face-image {
+  display: none;
+}
+
+.face,
+.uploaded {
+  display: none;
+}
+
+.spinner {
+  font-size: 60px;
+  position: relative;
+  margin-top: 60%;
+  color: #f15f79;
+}
+
+.spinner-title {
+  margin-top: 60px;
+  color: #f15f79;
+}
+
+.spinning-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: auto;
+  display: none;
+}
+
+.spinner-message {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.spinner-results {
+  color: #f15f79;
+  margin-bottom: 20px;
+  margin-top: 17%;
+}
+
+.spinner-message-success {
+  color: #f15f79;
+}
+
+.spinner-message-error {
+  color: #cc0000;
+}
+
+.spinner-message {
+  display: none;
+  margin-bottom: 40px;
+}
+
+.spinner-button {
+  color: white;
+  padding: 10px 26px;
+  background: #f15f79;
+  border-radius: 100px;
+  position: relative;
+  top: 50px;
+  display: none;
+  border: none;
+  cursor: pointer;
+}
+
+.spinner-button:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.input-hidden {
+  display: none;
+}
+
+.nav-bottom {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  left: 0;
+  justify-content: space-around;
+  box-shadow: rgba(0, 0, 0, 0.2) -3px 0px 4px;
+}
+
+.nav-bottom li {
+  list-style: none;
+  list-style-type: none;
+}
+
+.nav-bottom li i {
+  color: #ccc;
+  font-size: 28px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.nav-bottom li i.active {
+  color: #f15f79;
+}
+
+.list {
+  display: flex;
+  margin-top: 20px;
+}
+
+.user {
+  width: 50%;
+  margin: 0 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 4px;
+  cursor: pointer;
+}
+
+.user img {
+  width: 100%;
+}
+
+.user h6 {
+  color: #f15f79;
+  margin-top: 8px;
+}
+
+.content-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  width: 100vw;
+  display: none;
+}
+
+.content {
+  width: 70%;
+  margin: 0 auto;
+  background: white;
+  margin-top: 30px;
+  padding: 30px;
+  position: relative;
+}
+
+.content img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.interests {
+  display: flex;
+  justify-content: space-around;
+}
+
+.interests span {
+  color: #f15f79;
+  border: 1px solid #f15f79;
+  border-radius: 100px;
+  padding: 4px 10px;
+  font-size: 14px;
+}
+
+.like-button {
+  color: white;
+  background: #f15f79;
+  padding: 10px 20px;
+  position: relative;
+  border-radius: 100px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.matched-title {
+  color: #f15f79;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.matched-image {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.matched-subtitle {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.matched-transactionHash,
+.matched-timestamp {
+  margin: 0;
+}
+
+.matched-message {
+  color: white;
+  background: #f15f79;
+  padding: 10px 20px;
+  position: relative;
+  border-radius: 100px;
+  top: 30px;
+}

@@ -1,0 +1,28 @@
+doctype html
+head
+
+  include ./reusables.jade
+  script(type="text/javascript").
+    $(document).ready(function() {
+
+    })
+    
+
+
+body(style="background: white;")
+  main
+    h2.matched-title You found a new match!
+    img.matched-image(src="#{image}")
+    h5.matched-subtitle And here is the block details
+    p.matched-transactionHash 0x96fa3073a544a780a910...
+    p.matched-timestamp Aug-18-2018 05:44:56 PM +UTC
+    span.matched-message Message Now
+    .nav-bottom
+      li 
+        i.fas.fa-user
+      li 
+        i.fas.fa-home
+      li 
+        i.fas.fa-comments
+    
+  
